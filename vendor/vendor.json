@@ -3,42 +3,6 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "Qq7Gzany1n6gK6hpZQq9UXFhGGo=",
-			"comment": "v1.0rc1-110-g4cc2de6",
-			"path": "github.com/gin-gonic/gin",
-			"revision": "4cc2de6207f4128624cbdd16be30f64966c67c08"
-		},
-		{
-			"checksumSHA1": "M8Z61f8GZs6CO23wP+ekRgZEo+w=",
-			"comment": "v1.0rc1-110-g4cc2de6",
-			"path": "github.com/gin-gonic/gin/binding",
-			"revision": "4cc2de6207f4128624cbdd16be30f64966c67c08"
-		},
-		{
-			"checksumSHA1": "M8Z61f8GZs6CO23wP+ekRgZEo+w=",
-			"comment": "v1.0rc1-110-g4cc2de6",
-			"path": "github.com/gin-gonic/gin/binding",
-			"revision": "4cc2de6207f4128624cbdd16be30f64966c67c08"
-		},
-		{
-			"checksumSHA1": "/cPJSLLdEAWI/Mavbbe13RgSfP4=",
-			"comment": "v1.0rc1-110-g4cc2de6",
-			"path": "github.com/gin-gonic/gin/render",
-			"revision": "4cc2de6207f4128624cbdd16be30f64966c67c08"
-		},
-		{
-			"checksumSHA1": "MFkrEy77SoBbEtLd3Ros+NZO35w=",
-			"path": "github.com/heroku/x/hmetrics",
-			"revision": "705849e307dd75c91728463dea5bfd08ef493e64",
-			"revisionTime": "2017-10-04T17:02:40Z"
-		},
-		{
-			"checksumSHA1": "GOeW0t8PSBNHFTUHmdSgPv2kl/0=",
-			"path": "github.com/heroku/x/hmetrics/onload",
-			"revision": "705849e307dd75c91728463dea5bfd08ef493e64",
-			"revisionTime": "2017-10-04T17:02:40Z"
-		},
-		{
 			"checksumSHA1": "dDOyJIgZWGtymdBQtNvsYPa9KVA=",
 			"path": "github.com/labstack/echo",
 			"revision": "db8f5706fd73f5ea32b71752b1a3030bb8bacd22",
@@ -61,12 +25,7 @@
 			"path": "github.com/manucorporat/sse",
 			"revision": "c142f0f1baea5cef7f98a8a6c222f6134368c1f5"
 		},
-		{
-			"checksumSHA1": "AtXpiR7Gtq5cF+6eUAH+LzupMts=",
-			"path": "github.com/mattn/go-colorable",
-			"revision": "efa589957cd060542a26d2dd7832fd6a6c6c3ade",
-			"revisionTime": "2018-03-10T13:32:14Z"
-		},
+
 		{
 			"checksumSHA1": "kum8izZy1+pVfDiApW5hT2HoH1w=",
 			"path": "github.com/mattn/go-isatty",
@@ -74,51 +33,10 @@
 			"revisionTime": "2017-11-07T05:05:31Z"
 		},
 		{
-			"checksumSHA1": "ZtDdyC+h0SFNh4byuGfR7Yt0XhM=",
-			"path": "github.com/russross/blackfriday",
-			"revision": "11635eb403ff09dbc3a6b5a007ab5ab09151c229",
-			"revisionTime": "2018-04-28T10:25:19Z"
-		},
-		{
-			"checksumSHA1": "x6+Vi9WumwYUrK8ZUmkGLDgOLtc=",
-			"path": "github.com/valyala/bytebufferpool",
-			"revision": "e746df99fe4a3986f4d4f79e13c1e0117ce9c2f7",
-			"revisionTime": "2016-08-17T18:16:52Z"
-		},
-		{
-			"checksumSHA1": "UHztphFBVZKyLNbrMDVPM0VdJ60=",
-			"path": "github.com/valyala/fasttemplate",
-			"revision": "dcecefd839c4193db0d35b88ec65b4c12d360ab0",
-			"revisionTime": "2017-02-24T21:24:29Z"
-		},
-		{
-			"checksumSHA1": "J6lNRPdrYhKft6S8x33K9brxyhE=",
-			"path": "golang.org/x/crypto/acme",
-			"revision": "c126467f60eb25f8f27e5a981f32a87e3965053f",
-			"revisionTime": "2018-07-23T15:26:11Z"
-		},
-		{
-			"checksumSHA1": "EFjIi/zCZ1Cte0MQtyxGCTgSzk8=",
-			"path": "golang.org/x/crypto/acme/autocert",
-			"revision": "c126467f60eb25f8f27e5a981f32a87e3965053f",
-			"revisionTime": "2018-07-23T15:26:11Z"
-		},
-		{
-			"checksumSHA1": "hKZGpbFuCrkE4s1vxubKK1aFlfI=",
-			"path": "golang.org/x/net/context",
-			"revision": "d9558e5c97f85372afee28cf2b6059d7d3818919"
-		},
-		{
-			"checksumSHA1": "D5sLBEJArng5HCkJYSCtvD7xZNs=",
-			"path": "golang.org/x/sys/unix",
-			"revision": "e072cadbbdc8dd3d3ffa82b8b4b9304c261d9311",
-			"revisionTime": "2018-07-24T16:28:38Z"
-		},
-		{
-			"checksumSHA1": "P7dBpV3QA/3GJWGNwb9Hn3BzCQs=",
-			"comment": "v5.9.1",
-			"path": "gopkg.in/bluesuncorp/validator.v5",
-			"revision": "d627af88ac021317a280d320986282a6dc97549a"
+			"checksumSHA1": "1Ruoy4qS2II8IDxeFjib75q68UQ=",
+			"path": "github.com/mattn/go-sqlite3",
+			"revision": "b3511bfdd742af558b54eb6160aca9446d762a19",
+			"revisionTime": "2018-07-18T00:29:43Z"
 		}
 	],
 	"rootPath": "github.com/austinthale/resume-creator"
