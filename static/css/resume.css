@@ -1,0 +1,7 @@
+section[id]:before {
+    display: block;
+    height: 50px;   /* equal to the header height */
+    margin-top: -50px;  /* negative margin equal to the header height */
+    visibility: hidden;
+    content: "";
+}
