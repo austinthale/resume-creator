@@ -68,7 +68,12 @@
     <div class="starter-template">
         <div id="app">
             <div align="right">
-                <button v-on:click="editButton" style="width: 75px">Edit</button> <button v-on:click="saveButton" style="width: 75px">Save</button>
+                <div v-if="isEditing">
+                    <button v-on:click="saveButton" style="width: 75px">Save</button>
+                </div>
+                <div v-else>
+                    <button v-on:click="editButton" style="width: 75px">Edit</button>
+                </div>
             </div>
 
             <div v-if="isEditing" class="editSection" >
