@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"database/sql"
 	"github.com/labstack/echo/middleware"
+	"os"
 )
 
 type PersonInfo struct {
@@ -153,7 +154,13 @@ func main() {
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
-	e.File("/", "index.html") // using to serve a static file that will contain our VueJS client code.
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "1323"
+	}
+
+	e.File("/", "index.html")
+	//e.File("/", "src/github.com/austinthale/resume-creator/index.html") // using to serve a static file that will contain our VueJS client code.
 	e.Static("/static", "static")	// using to serve all files contained in public folder, and must be accessed
 										// through the /static folder ("localhost:1323/static/resume.css")
 
@@ -164,5 +171,5 @@ func main() {
 
 
 	// Start server
-	e.Logger.Fatal(e.Start(":1323"))
+	e.Logger.Fatal(e.Start(":"+port))
 }
