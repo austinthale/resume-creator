@@ -84,7 +84,7 @@ new Vue({
     },
     mounted () {
         axios
-            .get('/resumejson')
+            .get('/api/resumejson')
             .then(response => (this.info = response.data))
     }
 });
