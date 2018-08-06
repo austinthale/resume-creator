@@ -9,6 +9,18 @@
 			"revisionTime": "2018-07-19T21:18:23Z"
 		},
 		{
+			"checksumSHA1": "pvxk0Q4r/YXBCwsli3ElpINeVM8=",
+			"path": "github.com/gocraft/dbr",
+			"revision": "309b089dde68a64070a1d884d7d9767adbbdf140",
+			"revisionTime": "2018-07-18T18:31:57Z"
+		},
+		{
+			"checksumSHA1": "94w/u3XwQogfVXUl4BNqHHxm8gY=",
+			"path": "github.com/gocraft/dbr/dialect",
+			"revision": "309b089dde68a64070a1d884d7d9767adbbdf140",
+			"revisionTime": "2018-07-18T18:31:57Z"
+		},
+		{
 			"checksumSHA1": "dDOyJIgZWGtymdBQtNvsYPa9KVA=",
 			"path": "github.com/labstack/echo",
 			"revision": "db8f5706fd73f5ea32b71752b1a3030bb8bacd22",
@@ -43,6 +55,18 @@
 			"path": "github.com/labstack/gommon/random",
 			"revision": "2a618302b929cc20862dda3aa6f02f64dbe740dd",
 			"revisionTime": "2018-07-08T00:26:42Z"
+		},
+		{
+			"checksumSHA1": "iQQcKp8e/Kyf3olmUehjwri3ABw=",
+			"path": "github.com/lib/pq",
+			"revision": "90697d60dd844d5ef6ff15135d0203f65d2f53b8",
+			"revisionTime": "2018-05-23T17:54:26Z"
+		},
+		{
+			"checksumSHA1": "GX2hcQP8YqrXH+laJJIxUFsqoxU=",
+			"path": "github.com/lib/pq/oid",
+			"revision": "90697d60dd844d5ef6ff15135d0203f65d2f53b8",
+			"revisionTime": "2018-05-23T17:54:26Z"
 		},
 		{
 			"checksumSHA1": "8sba7NooZnLTY8zidsbqBeDUjxI=",
