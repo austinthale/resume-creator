@@ -26,9 +26,9 @@ func Init() *echo.Echo {
 	{
 		g.GET("/resumejson", api.DisplayInfo())
 		g.POST("/resumejson", api.SaveInfo())
+		g.GET("/test", api.DisplayJSON())
 	}
 
-	e.GET("/test", api.DisplayJSON())
 
 	return e
 }
