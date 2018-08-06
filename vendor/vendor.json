@@ -21,6 +21,30 @@
 			"revisionTime": "2018-07-18T18:31:57Z"
 		},
 		{
+			"checksumSHA1": "QoO0MXw/uQNOU7VqfxUYX+rXL7E=",
+			"path": "github.com/klauspost/compress/flate",
+			"revision": "b50017755d442260d792c34c7c43216d9ba7ffc7",
+			"revisionTime": "2018-08-01T09:52:37Z"
+		},
+		{
+			"checksumSHA1": "rO+kZTobMQp2VTLPrxLovqFWz3U=",
+			"path": "github.com/klauspost/compress/gzip",
+			"revision": "b50017755d442260d792c34c7c43216d9ba7ffc7",
+			"revisionTime": "2018-08-01T09:52:37Z"
+		},
+		{
+			"checksumSHA1": "tyO2QCRaqKdoRFNc5bU2tVRK6x8=",
+			"path": "github.com/klauspost/compress/zlib",
+			"revision": "b50017755d442260d792c34c7c43216d9ba7ffc7",
+			"revisionTime": "2018-08-01T09:52:37Z"
+		},
+		{
+			"checksumSHA1": "0zabCMmAzzi+2DhnewlT9MOUPVg=",
+			"path": "github.com/klauspost/cpuid",
+			"revision": "e7e905edc00ea8827e58662220139109efea09db",
+			"revisionTime": "2018-04-05T13:32:22Z"
+		},
+		{
 			"checksumSHA1": "dDOyJIgZWGtymdBQtNvsYPa9KVA=",
 			"path": "github.com/labstack/echo",
 			"revision": "db8f5706fd73f5ea32b71752b1a3030bb8bacd22",
@@ -97,6 +121,24 @@
 			"path": "github.com/valyala/bytebufferpool",
 			"revision": "e746df99fe4a3986f4d4f79e13c1e0117ce9c2f7",
 			"revisionTime": "2016-08-17T18:16:52Z"
+		},
+		{
+			"checksumSHA1": "0T+7F5FnaeBjc2sCdE+wVkOptr0=",
+			"path": "github.com/valyala/fasthttp",
+			"revision": "e5f51c11919d4f66400334047b897ef0a94c6f3c",
+			"revisionTime": "2017-12-07T12:09:41Z"
+		},
+		{
+			"checksumSHA1": "PR0VJo4sMXprWz+/zeKnLH9Yw/k=",
+			"path": "github.com/valyala/fasthttp/fasthttputil",
+			"revision": "e5f51c11919d4f66400334047b897ef0a94c6f3c",
+			"revisionTime": "2017-12-07T12:09:41Z"
+		},
+		{
+			"checksumSHA1": "0l/kTZy4cwC8P71DIi0CynmX4Bg=",
+			"path": "github.com/valyala/fasthttp/stackless",
+			"revision": "e5f51c11919d4f66400334047b897ef0a94c6f3c",
+			"revisionTime": "2017-12-07T12:09:41Z"
 		},
 		{
 			"checksumSHA1": "UHztphFBVZKyLNbrMDVPM0VdJ60=",

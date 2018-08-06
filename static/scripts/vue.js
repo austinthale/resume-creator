@@ -15,7 +15,7 @@ new Vue({
         },
         saveButton: function() {
             axios
-                .post('/resumejson', this.info.data,) //the data to post
+                .post('/api/resumejson', this.info.data,) //the data to post
                 .then(r => console.log('r: ', JSON.stringify(r, null, 2)));
             this.isEditing = false;
         },

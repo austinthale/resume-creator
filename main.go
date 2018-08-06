@@ -5,8 +5,6 @@ import (
 
 	_ "github.com/lib/pq"
 	"os"
-	"fmt"
-	"database/sql"
 	"github.com/austinthale/resume-creator/route"
 )
 
@@ -149,25 +147,21 @@ func main() {
 		conf.DB_USER, conf.DB_PASSWORD, conf.DB_NAME)
 	db, err := sql.Open("postgres", dbinfo)*/
 
-	dbUrl := os.Getenv("DATABASE_URL")
-	db, err := sql.Open("postgres", dbUrl)
-	checkErr(err)
-	defer db.Close()
+	router := route.Init()
 
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "1323"
 	}
 
-	router := route.Init()
 	// Start server
 	router.Logger.Fatal(router.Start(":"+port))
 }
 
-func checkErr(err error, args ...string) {
+/*func checkErr(err error, args ...string) {
 	if err != nil {
 		fmt.Println("Error")
 		fmt.Println(err, args)
 		return
 	}
-}
+}*/
