@@ -117,6 +117,12 @@
 			"revisionTime": "2018-07-18T00:29:43Z"
 		},
 		{
+			"checksumSHA1": "AtcZc00v3NsooZNvUyEc2BuN+1Y=",
+			"path": "github.com/sirupsen/logrus",
+			"revision": "d329d24db4313262a3b0a24d8aeb1dc4bd294fb0",
+			"revisionTime": "2018-07-31T16:13:55Z"
+		},
+		{
 			"checksumSHA1": "x6+Vi9WumwYUrK8ZUmkGLDgOLtc=",
 			"path": "github.com/valyala/bytebufferpool",
 			"revision": "e746df99fe4a3986f4d4f79e13c1e0117ce9c2f7",
@@ -157,6 +163,18 @@
 			"path": "golang.org/x/crypto/acme/autocert",
 			"revision": "c126467f60eb25f8f27e5a981f32a87e3965053f",
 			"revisionTime": "2018-07-23T15:26:11Z"
+		},
+		{
+			"checksumSHA1": "BGm8lKZmvJbf/YOJLeL1rw2WVjA=",
+			"path": "golang.org/x/crypto/ssh/terminal",
+			"revision": "56440b844dfe139a8ac053f4ecac0b20b79058f4",
+			"revisionTime": "2018-08-02T22:11:18Z"
+		},
+		{
+			"checksumSHA1": "Hi7BmkvZh4plNNLGDHfPnCKy3i8=",
+			"path": "golang.org/x/sys/windows",
+			"revision": "0ffbfd41fbef8ffcf9b62b0b0aa3a5873ed7a4fe",
+			"revisionTime": "2018-08-02T19:25:30Z"
 		}
 	],
 	"rootPath": "github.com/austinthale/resume-creator"
