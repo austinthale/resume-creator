@@ -1,15 +1,16 @@
 package main
 
 import (
-	_ "github.com/mattn/go-sqlite3"
-	"github.com/labstack/echo"
-	"net/http"
-	"database/sql"
-	"github.com/labstack/echo/middleware"
+	//_ "github.com/mattn/go-sqlite3"
+
+	_ "github.com/lib/pq"
 	"os"
+	"fmt"
+	"database/sql"
+	"github.com/austinthale/resume-creator/route"
 )
 
-type PersonInfo struct {
+/*type PersonInfo struct {
 	Name    string `json:"name"`
 	Address string `json:"address"`
 	Phone   string `json:"phone"`
@@ -42,7 +43,8 @@ type Resume struct {
 	Employments []Employment `json:"employments"`
 	Volunteers  []Volunteer  `json:"volunteers"`
 }
-
+*/
+/*
 var r = Resume{
 	PersonInfo: PersonInfo{
 		Name:    "Austin Hale",
@@ -104,11 +106,9 @@ var r = Resume{
 		},
 	},
 }
+*/
 
-func displayInfo(c echo.Context) error {
-	return c.JSON(http.StatusOK, r)
-}
-
+/*
 //Initializes DB, returns a pointer to sql DB
 func initDB(filepath string) *sql.DB {
 	db, err := sql.Open("sqlite3", filepath)
@@ -141,35 +141,33 @@ func migrate(db *sql.DB) {
 		panic(err)
 	}
 }
-
-func saveInfo(c echo.Context) error {
-	return c.JSON(http.StatusOK, r)
-}
+*/
 
 func main() {
-	// Echo instance
-	e := echo.New()
+	// Initialize the DB
+	/*dbinfo := fmt.Sprintf("user=%s password=%s dbname=%s sslmode=disable",
+		conf.DB_USER, conf.DB_PASSWORD, conf.DB_NAME)
+	db, err := sql.Open("postgres", dbinfo)*/
 
-	// Middleware
-	e.Use(middleware.Logger())
-	e.Use(middleware.Recover())
+	dbUrl := os.Getenv("DATABASE_URL")
+	db, err := sql.Open("postgres", dbUrl)
+	checkErr(err)
+	defer db.Close()
 
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "1323"
 	}
 
-	e.File("/", "index.html")
-	//e.File("/", "src/github.com/austinthale/resume-creator/index.html") // using to serve a static file that will contain our VueJS client code.
-	e.Static("/static", "static")	// using to serve all files contained in public folder, and must be accessed
-										// through the /static folder ("localhost:1323/static/resume.css")
-
-	// Route => handler
-	e.GET("/resumejson", displayInfo)
-
-	e.POST("/resumejson", saveInfo)
-
-
+	router := route.Init()
 	// Start server
-	e.Logger.Fatal(e.Start(":"+port))
+	router.Logger.Fatal(router.Start(":"+port))
+}
+
+func checkErr(err error, args ...string) {
+	if err != nil {
+		fmt.Println("Error")
+		fmt.Println(err, args)
+		return
+	}
 }

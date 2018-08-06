@@ -1,7 +1,7 @@
 {
   "name": "resume-creator",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple project used for creating a resume",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
