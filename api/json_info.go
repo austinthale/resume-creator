@@ -5,13 +5,32 @@ import (
 	"net/http"
 	"github.com/austinthale/resume-creator/model"
 	"github.com/gocraft/dbr"
-	"github.com/sirupsen/logrus"
+	"strconv"
 )
 // TODO build the r variable by accessing database and convert to structs
 
-func DisplayInfo() echo.HandlerFunc {
-	var r = model.Resume{}
+func GetResumeInfo() echo.HandlerFunc {
 	return func(c echo.Context) (err error) {
+		stringID := c.Param("id")
+		id, err := strconv.ParseInt(stringID, 10, 64)
+		if err != nil {
+			return err
+		}
+
+		var r = model.Resume{}
+		tx := c.Get("Tx").(*dbr.Tx)
+
+		// Load Personal Info
+		personInfo := new(model.PersonInfo)
+		if err := personInfo.Load(tx, id); err != nil {
+			//logrus.Debug(err)
+			return echo.NewHTTPError(http.StatusNotFound, "Resume does not exist.")
+		}
+		r.PersonInfo = *personInfo
+
+		// Load data into resume
+		r.Load(tx, id)
+
 		return c.JSON(http.StatusOK, r)
 	}
 }
@@ -23,17 +42,30 @@ func SaveInfo() echo.HandlerFunc {
 	}
 }
 
-func DisplayJSON() echo.HandlerFunc {
-	//var r = model.Resume{}
+/*func DisplayJSON() echo.HandlerFunc {
 	return func(c echo.Context) (err error) {
+		stringID := c.Param("id")
+		id, err := strconv.ParseInt(stringID, 10, 64)
+		if err != nil {
+			return err
+		}
+
+		var r = model.Resume{}
+
+		// personal info
 		tx := c.Get("Tx").(*dbr.Tx)
 		personInfo := new(model.PersonInfo)
-		// TODO ERROR OCCURS HERE
-		if err := personInfo.Load(tx, 1); err != nil {
-			logrus.Debug(err)
+
+		if err := personInfo.Load(tx, id); err != nil {
+			//logrus.Debug(err)
 			return echo.NewHTTPError(http.StatusNotFound, "Resume does not exist.")
 		}
-		//r.PersonInfo = *personInfo
-		return c.JSON(http.StatusOK, personInfo)
+		r.PersonInfo = *personInfo
+
+		// education
+		// ....
+
+
+		return c.JSON(http.StatusOK, r)
 	}
-}
+}*/

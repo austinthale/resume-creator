@@ -1,5 +1,9 @@
 package model
 
+import (
+	"github.com/gocraft/dbr"
+)
+
 type Resume struct {
 	PersonInfo  PersonInfo   `json:"person_info"`
 	Educations  []Education  `json:"educations"`
@@ -16,4 +20,14 @@ func NewResume(info PersonInfo, educations []Education, employments []Employment
 	}
 }
 
-type Resumes []Resume
+func (r *Resume) Load(tx *dbr.Tx, resumeID int64) error {
+	r.LoadEducations(tx, resumeID)
+	r.LoadEmployments(tx, resumeID)
+	r.LoadVolunteers(tx, resumeID)
+	//TODO r.GetEmpNotes(), r.GetEduNotes(), r.GetVolNotes()
+	return nil
+}
+
+
+
+

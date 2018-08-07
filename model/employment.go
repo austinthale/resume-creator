@@ -3,11 +3,11 @@ package model
 import "github.com/gocraft/dbr"
 
 type Employment struct {
-	Company      string   `json:"company"`
-	DateAttended string   `json:"date_attended"`
-	Position     string   `json:"position"`
+	Company      string   `json:"company" db:"company"`
+	DateAttended string   `json:"date_attended" db:"date_attended"`
+	Position     string   `json:"position" db:"position"`
 	Notes        []string `json:"notes"`
-	// Resume_ID	int 		`json:"resume_id"` ?????????????????
+	ResumeID	 int 	  `json:"resume_id" db:"resume_id"`
 }
 
 /****************************************************
@@ -36,6 +36,13 @@ func (e *Employment) Load(tx *dbr.Tx, id int64) error {
 		LoadOne(e)
 }
 
-type Employments []Employment
-
+func (r *Resume) LoadEmployments(tx *dbr.Tx, resumeID int64) error {
+	employments := []Employment{}
+	_, err := tx.Select("*").
+		From("employment").
+		Where("resume_id = ?", resumeID).
+		Load(&employments)
+	r.Employments = employments
+	return err
+}
 

@@ -1,12 +1,14 @@
 package model
 
-import "github.com/gocraft/dbr"
+import (
+	"github.com/gocraft/dbr"
+)
 
 type PersonInfo struct {
-	Name    string `json:"name"`
-	Address string `json:"address"`
-	Phone   string `json:"phone"`
-	Email   string `json:"email"`
+	Name    string `json:"name" db:"name"`
+	Address string `json:"address" db:"address"`
+	Phone   string `json:"phone" db:"phone"`
+	Email   string `json:"email" db:"email"`
 }
 
 /****************************************************
@@ -29,8 +31,8 @@ func (p *PersonInfo) Save(tx *dbr.Tx) error {
 ****************************************************/
 func (p *PersonInfo) Load(tx *dbr.Tx, id int64) error {
 
-	return tx.Select("name, address, phone, email").
-		From("Resume").
+	return tx.Select("name", "address", "phone", "email").
+		From("resume").
 		Where("id = ?", id).
 		LoadOne(p)
 }

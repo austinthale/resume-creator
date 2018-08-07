@@ -32,10 +32,13 @@ func Init() *echo.Echo {
 	// Routes => handlers
 	g := e.Group("/api")
 	{
-		g.GET("/resumejson", api.DisplayInfo())
+		g.GET("/resumejson/:id", api.GetResumeInfo())
 		g.POST("/resumejson", api.SaveInfo())
-		g.GET("/test", api.DisplayJSON())
+		//g.GET("/test", api.DisplayJSON())
+		//g.GET("/resumes/:id", api.DisplayJSON())
 	}
+
+
 
 	return e
 }
