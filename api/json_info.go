@@ -4,6 +4,8 @@ import (
 	"github.com/labstack/echo"
 	"net/http"
 	"github.com/austinthale/resume-creator/model"
+	"github.com/gocraft/dbr"
+	"github.com/sirupsen/logrus"
 )
 // TODO build the r variable by accessing database and convert to structs
 
@@ -24,13 +26,13 @@ func SaveInfo() echo.HandlerFunc {
 func DisplayJSON() echo.HandlerFunc {
 	//var r = model.Resume{}
 	return func(c echo.Context) (err error) {
-		//tx := c.Get("Tx").(*dbr.Tx)
+		tx := c.Get("Tx").(*dbr.Tx)
 		personInfo := new(model.PersonInfo)
 		// TODO ERROR OCCURS HERE
-		/*if err := personInfo.Load(tx, 1); err != nil {
+		if err := personInfo.Load(tx, 1); err != nil {
 			logrus.Debug(err)
 			return echo.NewHTTPError(http.StatusNotFound, "Resume does not exist.")
-		}*/
+		}
 		//r.PersonInfo = *personInfo
 		return c.JSON(http.StatusOK, personInfo)
 	}

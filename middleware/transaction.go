@@ -15,10 +15,10 @@ func TransactionHandler(db *dbr.Session) echo.MiddlewareFunc {
 	return func(next echo.HandlerFunc) echo.HandlerFunc {
 		return echo.HandlerFunc(func(c echo.Context) error {
 			logrus.Println(db)
-			tx, _ := db.Begin()
+			tx, err := db.Begin()
 			logrus.Println("Tx value: ", tx)
 			c.Set(TxKey, tx)
-			logrus.Println("TxKey: ", TxKey, "tx: ", tx)
+			logrus.Println("TxKey: ", TxKey, "tx: ", tx, err)
 
 			// If there's an error, Rollback
 			if err := next(c); err != nil {
