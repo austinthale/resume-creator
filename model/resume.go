@@ -21,10 +21,10 @@ func NewResume(info PersonInfo, educations []Education, employments []Employment
 }
 
 func (r *Resume) Load(tx *dbr.Tx, resumeID int64) error {
-	r.LoadEducations(tx, resumeID)
-	r.LoadEmployments(tx, resumeID)
-	r.LoadVolunteers(tx, resumeID)
-	//TODO r.GetEmpNotes(), r.GetEduNotes(), r.GetVolNotes()
+	r.GetEducations(tx, resumeID)
+	r.GetEmployments(tx, resumeID)
+	r.GetVolunteers(tx, resumeID)
+
 	return nil
 }
 

@@ -3,6 +3,7 @@ package model
 import "github.com/gocraft/dbr"
 
 type Volunteer struct {
+	ID 			 int	  `db:"id"`
 	Company      string   `json:"company" db:"company"`
 	DateAttended string   `json:"date_attended" db:"date_attended"`
 	Position     string   `json:"position" db:"position"`
@@ -23,7 +24,7 @@ func (v *Volunteer) Save(tx *dbr.Tx) error {
 
 	return err
 }
-// TODO Find some way to get the notes for the Education object and append it to struct???
+
 /****************************************************
 * Load SQL data into PersonInfo struct based on the ID,
 * and return ptr to that struct
@@ -36,12 +37,20 @@ func (v *Volunteer) Load(tx *dbr.Tx, id int64) error {
 		LoadOne(v)
 }
 
-func (r *Resume) LoadVolunteers(tx *dbr.Tx, resumeID int64) error {
+/****************************************************
+* Retrieves each Volunteer section from database for
+* this Resume, and loads data into struct (JSON format).
+****************************************************/
+func (r *Resume) GetVolunteers(tx *dbr.Tx, resumeID int64) error {
 	volunteers := []Volunteer{}
 	_, err := tx.Select("*").
 		From("volunteer").
 		Where("resume_id = ?", resumeID).
 		Load(&volunteers)
 	r.Volunteers = volunteers
+
+	for idx, vol := range r.Volunteers {
+		r.Volunteers[idx].Notes = GetNotes(tx, vol.ID, "volunteer")
+	}
 	return err
 }

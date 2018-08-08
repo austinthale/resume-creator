@@ -28,7 +28,7 @@ func GetResumeInfo() echo.HandlerFunc {
 		}
 		r.PersonInfo = *personInfo
 
-		// Load data into resume
+		// Load all the data into resume
 		r.Load(tx, id)
 
 		return c.JSON(http.StatusOK, r)

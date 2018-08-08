@@ -1,3 +1,4 @@
+var resumeID = 1;
 new Vue({
     el: '#app',
     data:{
@@ -15,7 +16,7 @@ new Vue({
         },
         saveButton: function() {
             axios
-                .post('/api/resumejson', this.info.data,) //the data to post
+                .post('/api/resumejson/' + resumeID, this.info.data,) //the data to post
                 .then(r => console.log('r: ', JSON.stringify(r, null, 2)));
             this.isEditing = false;
         },
@@ -82,9 +83,10 @@ new Vue({
             this.info.volunteers.splice(i,1);
         },
     },
+
     mounted () {
         axios
-            .get('/api/resumejson')
+            .get('/api/resumejson/' + resumeID)
             .then(response => (this.info = response.data))
     }
 });

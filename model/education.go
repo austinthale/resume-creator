@@ -1,8 +1,11 @@
 package model
 
-import "github.com/gocraft/dbr"
+import (
+	"github.com/gocraft/dbr"
+)
 
 type Education struct {
+	ID		 	 int	  `db:"id"`
 	School       string   `json:"school" db:"school"`
 	DateAttended string   `json:"date_attended" db:"date_attended"`
 	Notes        []string `json:"notes"`
@@ -23,15 +26,22 @@ func (e *Education) Save(tx *dbr.Tx) error {
 	return err
 }
 
-
-func (r *Resume) LoadEducations(tx *dbr.Tx, resumeID int64) error {
+/****************************************************
+* Retrieves each Education section from database for
+* this Resume, and loads data into struct (JSON format).
+****************************************************/
+func (r *Resume) GetEducations(tx *dbr.Tx, resumeID int64) error {
 	educations := []Education{}
 	_, err := tx.Select("*").
 		From("education").
 		Where("resume_id = ?", resumeID).
 		Load(&educations)
 	r.Educations = educations
-	//r.Educations.GetEduNotes(tx, resumeID)
+
+	for idx, edu := range r.Educations {
+		r.Educations[idx].Notes = GetNotes(tx, edu.ID, "education")
+	}
+
 	return err
 }
 
