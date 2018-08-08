@@ -3,7 +3,9 @@ new Vue({
     el: '#app',
     data:{
         info: {
-            person_info: {}
+            person_info: {
+                name: "Loading..."
+            }
         },
         educations: [],
         employments: [],
