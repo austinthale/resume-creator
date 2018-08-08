@@ -1,4 +1,4 @@
-var resumeID = 1;
+var resumeID = 1; // default, used to load main resume
 new Vue({
     el: '#app',
     data:{
