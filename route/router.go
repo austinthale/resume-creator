@@ -33,7 +33,7 @@ func Init() *echo.Echo {
 	g := e.Group("/api")
 	{
 		g.GET("/resumejson/:id", api.GetResumeInfo())
-		g.POST("/resumejson", api.SaveInfo())
+		g.POST("/resumejson/:id", api.SetResumeInfo())
 		//g.GET("/test", api.DisplayJSON())
 		//g.GET("/resumes/:id", api.DisplayJSON())
 	}

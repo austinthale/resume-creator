@@ -18,7 +18,7 @@ new Vue({
         },
         saveButton: function() {
             axios
-                .post('/api/resumejson/' + resumeID, this.info.data,) //the data to post
+                .post('/api/resumejson/' + resumeID, this.info) //the data to post
                 .then(r => console.log('r: ', JSON.stringify(r, null, 2)));
             this.isEditing = false;
         },
@@ -51,38 +51,48 @@ new Vue({
         },
         addEducation: function()  {
             var newEdu = {
+                resume_id: resumeID,
+                education_key: "",
                 school: "",
                 date_attended: "",
+                is_deleted: false,
                 notes: []
             };
             this.info.educations.push(newEdu);
         },
         addJob: function()  {
             var newJob = {
+                resume_id: resumeID,
+                employment_key: "",
                 company: "",
                 position: "",
                 date_attended: "",
+                is_deleted: false,
                 notes: []
             };
             this.info.employments.push(newJob);
         },
         addVol: function()  {
             var newVol = {
+                resume_id: resumeID,
+                volunteer_key: "",
                 company: "",
                 position: "",
                 date_attended: "",
+                is_deleted: false,
                 notes: []
             };
             this.info.volunteers.push(newVol);
         },
         deleteEdu: function (i) {
-            this.info.educations.splice(i,1);
+            this.info.educations[i].is_deleted = true;
+            // this.$forceUpdate();
         },
         deleteJob: function (i) {
-            this.info.employments.splice(i,1);
+            this.info.employments[i].is_deleted = true
         },
         deleteVol: function (i) {
-            this.info.volunteers.splice(i,1);
+            this.info.volunteers[i].is_deleted = true
         },
     },
 
