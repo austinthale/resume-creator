@@ -2,7 +2,6 @@ package model
 
 import (
 	"github.com/gocraft/dbr"
-	"github.com/austinthale/resume-creator/pkg"
 )
 // The EduKey is a work-around because postgres couldn't get the ID's for the section
 // in order to insert notes (would've had to use INSERT with RETURNING, to get last ID)
@@ -47,7 +46,7 @@ func (r *Resume) SetEducations(tx *dbr.Tx, id int64) error {
 			UpdateEducation(tx, edu)
 		} else if edu.EduKey == "" {					// Else, it's null. Insert new Education
 			// Generate random key for this education section
-			edu.EduKey = pkg.RandSeq(16)
+			edu.EduKey = RandSeq(16)
 			edu.ResumeID = int(id)
 			InsertEducation(tx, edu)
 		}

@@ -8,7 +8,6 @@ import (
 	"strconv"
 	"github.com/sirupsen/logrus"
 )
-// TODO build the r variable by accessing database and convert to structs
 
 func GetResumeInfo() echo.HandlerFunc {
 	return func(c echo.Context) (err error) {
@@ -50,31 +49,3 @@ func SetResumeInfo() echo.HandlerFunc {
 		return c.JSON(http.StatusOK, r)
 	}
 }
-
-/*func DisplayJSON() echo.HandlerFunc {
-	return func(c echo.Context) (err error) {
-		stringID := c.Param("id")
-		id, err := strconv.ParseInt(stringID, 10, 64)
-		if err != nil {
-			return err
-		}
-
-		var r = model.Resume{}
-
-		// personal info
-		tx := c.Get("Tx").(*dbr.Tx)
-		personInfo := new(model.PersonInfo)
-
-		if err := personInfo.GetPersonInfo(tx, id); err != nil {
-			//logrus.Debug(err)
-			return echo.NewHTTPError(http.StatusNotFound, "Resume does not exist.")
-		}
-		r.PersonInfo = *personInfo
-
-		// education
-		// ....
-
-
-		return c.JSON(http.StatusOK, r)
-	}
-}*/

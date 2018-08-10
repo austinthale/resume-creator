@@ -2,7 +2,6 @@ package model
 
 import (
 	"github.com/gocraft/dbr"
-	"github.com/austinthale/resume-creator/pkg"
 )
 
 type Employment struct {
@@ -47,7 +46,7 @@ func (r *Resume) SetEmployments(tx *dbr.Tx, id int64) error {
 			UpdateEmployment(tx, emp)
 		} else if emp.EmpKey == "" {					// Else, it's null. Insert new Employment
 			// Generate random key for this employment section
-			emp.EmpKey = pkg.RandSeq(16)
+			emp.EmpKey = RandSeq(16)
 			emp.ResumeID = int(id)
 			InsertEmployment(tx, emp)
 		}

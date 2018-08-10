@@ -2,7 +2,6 @@ package model
 
 import (
 	"github.com/gocraft/dbr"
-	"github.com/austinthale/resume-creator/pkg"
 )
 
 type Volunteer struct {
@@ -47,7 +46,7 @@ func (r *Resume) SetVolunteers(tx *dbr.Tx, id int64) error {
 			UpdateVolunteer(tx, vol)
 		} else if vol.VolKey == "" { // Else, it's null. Insert new Volunteer
 			// Generate random key for this education section
-			vol.VolKey = pkg.RandSeq(16)
+			vol.VolKey = RandSeq(16)
 			vol.ResumeID = int(id)
 			InsertVolunteer(tx, vol)
 		}

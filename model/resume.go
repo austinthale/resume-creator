@@ -13,15 +13,6 @@ type Resume struct {
 	Volunteers  []Volunteer  `json:"volunteers"`
 }
 
-func NewResume(info PersonInfo, educations []Education, employments []Employment, volunteers []Volunteer) *Resume {
-	return &Resume{
-		PersonInfo:    info,
-		Educations:    educations,
-		Employments:   employments,
-		Volunteers:	   volunteers,
-	}
-}
-
 func (r *Resume) Load(tx *dbr.Tx, resumeID int64) error {
 	error := false
 	if err := r.PersonInfo.GetPersonInfo(tx, resumeID); err != nil { error = true }
