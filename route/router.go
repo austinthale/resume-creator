@@ -17,6 +17,8 @@ func Init() *echo.Echo {
 	// Middleware
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
+	// Unauthenticated route
+	e.GET("/", api.Accessible())
 
 	// Custom Middleware
 	e.HTTPErrorHandler = handler.CustomHTTPErrorHandler
@@ -34,10 +36,9 @@ func Init() *echo.Echo {
 	{
 		g.GET("/resumejson/:id", api.GetResumeInfo())
 		g.POST("/resumejson/:id", api.SetResumeInfo())
-		//g.GET("/test", api.DisplayJSON())
-		//g.GET("/resumes/:id", api.DisplayJSON())
+		g.POST("/login", api.Login())
+		//g.Use(middleware.JWT([]byte("secret")))
+		g.GET("", api.Restricted())
 	}
-
-
 	return e
 }

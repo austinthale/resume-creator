@@ -10,9 +10,34 @@ new Vue({
         educations: [],
         employments: [],
         volunteers:[],
-        isEditing: false
+        isEditing: false,
+        isLoggedIn: false,
+        input: {
+            username: '',
+            password: ''
+        },
+        token: '',
+        invalidCred: false
     },
     methods: {
+        loginButton: function() {
+            if(this.input.username !== "" && this.input.password !== "") {
+                axios
+                    .post('/api/login', this.input)
+                    .then(response => (this.token = response.data))
+                    .catch(function (error) {
+                    //console.log(error.response.status);
+                        if(error.response.status === 401) {
+                            this.invalidCred = true
+                            this.$forceUpdate();
+                        }
+                    });
+
+                if(this.token != null){
+                    console.log("Tokenx is: ", this.token)
+                }
+            }
+        },
         editButton: function() {
             this.isEditing = true;
         },

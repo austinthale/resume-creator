@@ -40,6 +40,7 @@
 </head>
 
 <body>
+<div id="app">
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -58,6 +59,48 @@
                 <li><a href="#xp">Employment</a></li>
                 <li><a href="#volunteer">Volunteer</a></li>
             </ul>
+            <div v-if="!isLoggedIn" align="right" >
+                <button class="login" onclick="document.getElementById('id01').style.display='block'; document.body.classList.add('show-overlay')" style="width: 50px; margin-top: 12px">Login</button>
+
+                <!-- The Modal -->
+                <div id="id01" class="modal" style="overflow: scroll">
+                    <span onclick="document.getElementById('id01').style.display='none'"
+                        class="close" title="Close Modal">&times;</span>
+
+                    <!-- Modal Content -->
+                    <form class="modal-content animate" @submit.prevent="login">
+                        <div class="imgcontainer">
+                            <img src="static/images/img_avatar2.png" alt="Avatar" class="avatar">
+                        </div>
+                        <div>
+                            {{invalidCred}}
+                        </div>
+                        <div v-if="invalidCred">
+                            <p style="color:red; size: 8px;">**Invalid username or password. Please try again.**</p>
+                        </div>
+                        <div class="container" align="left" style="width: 100%">
+                            <label for="username"><b>Username</b></label><br>
+                            <input type="text" placeholder="Enter Username" v-model="input.username" name="username" required style="width: 100%; padding: 10px 20px"><br>
+
+                            <label for="password" style="padding-top: 5px"><b>Password</b></label><br>
+                            <input type="password" placeholder="Enter Password" v-model="input.password" name="password" required style="width: 100%; padding: 10px 20px"><br>
+
+                            <button type="button" v-on:click="loginButton()" style="margin-top: 8px; width: 100%; padding: 10px 20px; color: white; background-color: #4CAF50">Submit</button>
+                            <div align="left">
+                            <label>
+                                <input type="checkbox" checked="checked" name="remember" style="margin-top: 8px"> Remember me
+                            </label>
+                            </div>
+                        </div>
+
+                        <div class="container" style="background-color:#f1f1f1; width: 100%" align="left">
+                            <button type="button" onclick="document.getElementById('id01').style.display='none'; document.body.classList.remove('show-overlay')" class="cancelbtn" style="color: white">Cancel</button>
+                            <span class="psw" style="margin-right: auto"><a href="#">Forgot password?</a></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
         </div><!--/.nav-collapse -->
     </div>
 </nav>
@@ -65,8 +108,8 @@
 <div class="container">
 
     <div class="starter-template">
-        <div id="app">
-            <div align="right">
+        <div>
+            <div v-if="isLoggedIn" align="right">
                 <div v-if="isEditing">
                     <button v-on:click="saveButton" style="width: 75px">Save</button>
                 </div>
@@ -236,13 +279,26 @@
 </div>
 
 </div><!-- /.container -->
-
+</div>
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://getbootstrap.com/docs/3.3/dist/js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="https://getbootstrap.com/docs/3.3/assets/js/ie10-viewport-bug-workaround.js"></script>
 <script src="static/scripts/vue.js?v=1.3.081018"></script>
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+    var body = document.body
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            body.classList.remove("show-overlay");
+        }
+    }
+</script>
 </body>
 
 </html>
