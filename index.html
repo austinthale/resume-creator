@@ -72,13 +72,10 @@
                         <div class="imgcontainer">
                             <img src="static/images/img_avatar2.png" alt="Avatar" class="avatar">
                         </div>
-                        <div>
-                            {{invalidCred}}
-                        </div>
                         <div v-if="invalidCred">
-                            <p style="color:red; size: 8px;">**Invalid username or password. Please try again.**</p>
+                            <p style="color:red; font-size: 12px; text-align: center; margin-top: 10px">**Invalid username or password. Please try again.**</p>
                         </div>
-                        <div class="container" align="left" style="width: 100%">
+                        <div class="container" align="left" style="width: 100%; padding: 5px 15px 5px 15px">
                             <label for="username"><b>Username</b></label><br>
                             <input type="text" placeholder="Enter Username" v-model="input.username" name="username" required style="width: 100%; padding: 10px 20px"><br>
 

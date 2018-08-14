@@ -22,20 +22,29 @@ new Vue({
     methods: {
         loginButton: function() {
             if(this.input.username !== "" && this.input.password !== "") {
+                self = this;
                 axios
                     .post('/api/login', this.input)
                     .then(response => (this.token = response.data))
                     .catch(function (error) {
                     //console.log(error.response.status);
                         if(error.response.status === 401) {
-                            this.invalidCred = true
-                            this.$forceUpdate();
+                            self.invalidCred = true;
                         }
                     });
 
                 if(this.token != null){
-                    console.log("Tokenx is: ", this.token)
+                    let modal = document.getElementById('id01');
+                    let body = document.body;
+
+                    modal.style.display = "none";
+                    body.classList.remove("show-overlay");
+                    
+                    self.isLoggedIn = true;
                 }
+            }
+            else {
+                this.invalidCred = true;
             }
         },
         editButton: function() {

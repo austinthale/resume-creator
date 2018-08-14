@@ -23,9 +23,6 @@
 *.zip
 
 # Images #
-*.jpg
-*.gif
-*.png
 *.svg
 *.ico
 
