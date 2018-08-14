@@ -25,23 +25,24 @@ new Vue({
                 self = this;
                 axios
                     .post('/api/login', this.input)
-                    .then(response => (this.token = response.data))
+                    .then(function(response) {
+                        this.token = response.data;
+                        if(this.token != null){
+                            let modal = document.getElementById('id01');
+                            let body = document.body;
+
+                            modal.style.display = "none";
+                            body.classList.remove("show-overlay");
+
+                            self.isLoggedIn = true;
+                        }
+                    })
                     .catch(function (error) {
                     //console.log(error.response.status);
                         if(error.response.status === 401) {
                             self.invalidCred = true;
                         }
                     });
-
-                if(this.token != null){
-                    let modal = document.getElementById('id01');
-                    let body = document.body;
-
-                    modal.style.display = "none";
-                    body.classList.remove("show-overlay");
-                    
-                    self.isLoggedIn = true;
-                }
             }
             else {
                 this.invalidCred = true;
