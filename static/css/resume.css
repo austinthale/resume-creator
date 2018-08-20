@@ -129,4 +129,22 @@ span.psw {
 .show-overlay {
     overflow: hidden;
 }
+#top_links{
+    margin-top: 0px;
+    text-align: center;
+    color: #bfbfbf;
+    word-spacing:40px;
+    padding-right: 55px;
+    margin-bottom: 0px;
+}
+#app{
+    font-family: book Antiqua, Helvetica, sans-serif;
+    background: linear-gradient(#adeab7, #7c87f1);
+}
+.starter-template{
+    width:100%;
+    background: white;
+    padding: 40px 50px !important;
+    text-align: center;
+}
 

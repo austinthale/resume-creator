@@ -51,14 +51,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Austin T Hale</a>
+            <a class="navbar-brand" href="#">AUSTIN T HALE</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="#edu">Education</a></li>
-                <li><a href="#xp">Employment</a></li>
-                <li><a href="#volunteer">Volunteer</a></li>
+            <div style="position: absolute; left: 36%;">
+            <ul id="top_links" class="nav navbar-nav">
+                <li><a href="#edu">EDUCATION</a></li>
+                <li><a href="#xp">EMPLOYMENT</a></li>
+                <li><a href="#volunteer">VOLUNTEER</a></li>
             </ul>
+            </div>
             <div v-if="!isLoggedIn" align="right" >
                 <button class="login" onclick="document.getElementById('id01').style.display='block'; document.body.classList.add('show-overlay')" style="width: 50px; margin-top: 12px">Login</button>
 
@@ -272,9 +274,11 @@
             </section>
         </div>
         <hr style="height:4px" color="grey">
+    <footer>
+        <p id="back"><a href="#">↑&ensp;Back to Top</a></p>
+    </footer>
     </div>
 </div>
-
 </div><!-- /.container -->
 </div>
 <!-- Placed at the end of the document so the pages load faster -->
